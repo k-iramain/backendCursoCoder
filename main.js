@@ -1,3 +1,4 @@
+/*
 class Usuario {
     constructor(firstName, lastName, books, pets) {
         this.firstName = firstName;
@@ -48,4 +49,7 @@ usuario.addBook("Arboles del abalorio", "Hermann Hesse")
 usuario.addBook("El bar del infierno", "Alejandro Dolina")
 
 console.log(`cantidad de animales: ${usuario.countPets()}`)
-console.log(`Los nombres de los libros: ${usuario.getBooksName()}`)
+console.log(`Los nombres de los libros: ${usuario.getBooksName()}`)*/
+
+
+
