@@ -14,8 +14,11 @@ router.get('/', function(req, res) {
     res.status(200).send(container.getAll());
 });
 // define the about route
-router.get('/:id', function(req, res) {
+router.get('/:id', function(req, res, next) {
     let product = container.getById(req.params.id)
+    if (!product) {
+        res.status(404).send('Error: producto no encontrado')
+    }
     res.status(200).send(product);
 });
 
@@ -30,16 +33,24 @@ router.post('/', function(req, res) {
 });
 
 router.put('/:id', function(req, res) {
-    let product = container.update(
+    let product = container.getById(req.params.id)
+    if (!product) {
+        res.status(404).send('Error: producto no encontrado')
+    }
+    let updateProduct = container.update(
         req.params.id,
         req.body.title,
         req.body.price,
         req.body.image
     );
-    res.status(200).send(product)
+    res.status(200).send(updateProduct)
 });
 
 router.delete('/:id', function(req, res) {
+    let product = container.getById(req.params.id)
+    if (!product) {
+        res.status(404).send('Error: producto no encontrado')
+    }
     res.status(204).send(container.deleteById(req.params.id));
 });
 
