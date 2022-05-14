@@ -1,0 +1,12 @@
+h1 
+    | productos: 
+if products.length     
+    ul 
+        each product in products 
+            li= product.id 
+            li= product.title
+            li= product.price
+            li= product.image
+
+else 
+    p No se ha encontrado el producto
